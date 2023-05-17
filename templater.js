@@ -2,12 +2,12 @@ const fs = require('fs');
 
 module.exports = {
     templates: require("./templates/templates.js"),
-    keys: {
-        "date": {
-            grab: function () {
-                return "awesome";
-            }
+    keys: [],
+    initKeys: function() {
+        function load(req) {
+            module.exports.keys.push(require(req));
         }
+        load("./keys/medals");
     },
     toPng: function (data, source) {
         if(source == "svg") {
@@ -25,13 +25,20 @@ module.exports = {
         }
     },
     load: function (template) {
+        if(this.keys.length == 0) {
+            this.initKeys();
+        }
+
         var template = this.templates.templates[template];
         var data = fs.readFileSync("./templates/" + template.file, 'utf8');
         var keys = data.match(/\$\{(.*)\}/);
         for (var key of keys) {
             if (!key.startsWith("${")) {
-                console.log(key);
-                data = data.replace("${" + key + "}", this.keys[key].grab())
+                for(var _eKey of this.keys) {
+                    if(typeof(_eKey.keys[key]) != "undefined") {
+                        data = data.replace("${" + key + "}", _eKey.keys[key].grab())
+                    }
+                }
             }
         }
 
