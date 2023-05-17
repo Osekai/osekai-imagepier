@@ -9,22 +9,8 @@ module.exports = {
         }
         load("./keys/medals");
     },
-    toPng: function (data, source) {
-        if(source == "svg") {
-            // TODO: render svg to png
-        }
-        if(source == "html") {
-            // TODO: render html to png
-        }
-    },
-    toSvg: function (data, source) {
-        if(source == "svg") {
-            return data;
-        } else if(source == "html") {
-            // * render HTML to svg??
-        }
-    },
-    load: function (template) {
+    renderer: require("./renderer"),
+    load: async function (template) {
         if(this.keys.length == 0) {
             this.initKeys();
         }
@@ -45,11 +31,11 @@ module.exports = {
         var headers = "";
         if(template.render_type == "png") {
             headers = "image/png";
-            this.toPng(data, template.source_type);
+            data = await this.renderer.toPng(data, template.source_type);
         } 
         if(template.render_type == "svg") {
             headers = "image/svg+xml";
-            this.toSvg(data, template.source_type);
+            data = await this.renderer.toSvg(data, template.source_type);
         }
 
         return {

@@ -4,8 +4,8 @@ const templater = require("./templater");
 
 const host = 'localhost';
 const port = 8000;
-const requestListener = function (req, res) {
-    var data = templater.load("medals_embed");
+const requestListener = async function (req, res) {
+    var data = await templater.load("medals_embed_png");
     res.setHeader("Content-Type", data.headers);
     res.writeHead(200);
     res.end(data.text);

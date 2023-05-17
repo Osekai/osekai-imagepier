@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "convert-svg-to-png": "^0.6.4"
+  }
+}
