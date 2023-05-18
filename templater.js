@@ -10,19 +10,23 @@ module.exports = {
         load("./keys/medals");
     },
     renderer: require("./renderer"),
-    load: async function (template) {
+    load: async function (template, id) {
         if(this.keys.length == 0) {
             this.initKeys();
         }
 
         var template = this.templates.templates[template];
         var data = fs.readFileSync("./templates/" + template.file, 'utf8');
-        var keys = data.match(/\$\{(.*)\}/);
+        var keys = data.matchAll(/\$\{(.*)\}/g);
         for (var key of keys) {
+            key = key[1];
+            console.log(key);
             if (!key.startsWith("${")) {
+                console.log(key);
                 for(var _eKey of this.keys) {
                     if(typeof(_eKey.keys[key]) != "undefined") {
-                        data = data.replace("${" + key + "}", _eKey.keys[key].grab())
+                        console.log("running " + key)
+                        data = data.replace("${" + key + "}", await _eKey.keys[key].grab(id))
                     }
                 }
             }

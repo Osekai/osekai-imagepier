@@ -9,13 +9,13 @@
         fill="url(#paint2_linear_0_1)" fill-opacity="0.1" />
     <rect x="987" y="44" width="203" height="218" fill="url(#pattern0)" />
     <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Comfortaa"
-        font-size="40" letter-spacing="0em"><tspan x="89" y="158.866">${date}</tspan></text>
+        font-size="40" letter-spacing="0em"><tspan x="89" y="158.866">${medalDescription}</tspan></text>
     <text fill="white" fill-opacity="0.5" xml:space="preserve" style="white-space: pre"
-        font-family="Comfortaa" font-size="35" font-weight="300" letter-spacing="0em"><tspan x="89" y="197.866">Every hour&#39;s got sixty, but your timer only </tspan><tspan x="89" y="236.866">wants one.</tspan></text>
+        font-family="Comfortaa" font-size="35" font-weight="300" letter-spacing="0em"><tspan x="89" y="197.866">${medalHint}</tspan></text>
     <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Comfortaa"
-        font-size="60" font-weight="bold" letter-spacing="0em"><tspan x="89" y="113.866">Right On Time&#10;</tspan></text>
+        font-size="60" font-weight="bold" letter-spacing="0em"><tspan x="89" y="113.866">${medalName}</tspan></text>
     <text fill="white" fill-opacity="0.8" xml:space="preserve" style="white-space: pre"
-        font-family="Comfortaa" font-size="35" letter-spacing="0em"><tspan x="89" y="386.823">Submit a score on Kola Kid - timer on the first minute of an </tspan><tspan x="89" y="425.823">hour (ex: 5:00pm, 6:00pm, can be on any second) Note: the </tspan><tspan x="89" y="464.823">play must END at this time, therefore, a DT play will need to </tspan><tspan x="89" y="503.823">be started in the first half of XX:59, NOT XX:00</tspan></text>
+        font-family="Comfortaa" font-size="35" letter-spacing="0em">${medalSolution}</text>
     <path
         d="M145.914 618.185L131.471 609.927C127.494 607.658 122.567 607.658 118.589 609.927L104.146 618.185C100.168 620.454 97.6899 624.659 97.6899 629.226V645.712C97.6899 650.28 100.138 654.485 104.146 656.753L118.589 665.011C122.567 667.28 127.494 667.28 131.471 665.011L145.914 656.753C149.892 654.485 152.371 650.28 152.371 645.712V629.226C152.371 624.689 149.892 620.484 145.914 618.185Z"
         fill="#EEEEEE" />
