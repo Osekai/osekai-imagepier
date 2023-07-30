@@ -9,6 +9,11 @@ module.exports = {
             "file": "src/medals/embed.svg",
             "render_type": "png",
             "source_type": "svg",
+        },
+        "test": {
+            "file": "src/test.html",
+            "render_type": "png",
+            "source_type": "html",
         }
     }
 };

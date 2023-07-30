@@ -3,7 +3,6 @@ const request = require("../request")
 module.exports = {
     data: null,
     loadData: async function () {
-        console.log("fetching data");
         if (this.data == null) {
             var response = await request.httpsPost({
                 hostname: 'osekai.net',
@@ -13,20 +12,15 @@ module.exports = {
                     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
                 },
             })
-            console.log(response);
             this.data = JSON.parse(response);
-        } else {
-            console.log("data filled already.");
         }
     },
     getMedalFromId: function (id) {
         for (const [key, value] of Object.entries(this.data)) {
-            for (var medal of value) {
-                if (medal.MedalID == id) {
-                    console.log(medal);
-                    return medal;
+                if (value.MedalID == id) {
+                    return value;
                 }
-            }
+            
         }
     },
     keys: {

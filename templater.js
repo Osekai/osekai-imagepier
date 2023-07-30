@@ -20,12 +20,9 @@ module.exports = {
         var keys = data.matchAll(/\$\{(.*)\}/g);
         for (var key of keys) {
             key = key[1];
-            console.log(key);
             if (!key.startsWith("${")) {
-                console.log(key);
                 for(var _eKey of this.keys) {
                     if(typeof(_eKey.keys[key]) != "undefined") {
-                        console.log("running " + key)
                         data = data.replace("${" + key + "}", await _eKey.keys[key].grab(id))
                     }
                 }
